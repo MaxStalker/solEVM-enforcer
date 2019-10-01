@@ -59,6 +59,7 @@ exports.ExecutionPoker = class ExecutionPoker {
         this.registerExecution(taskHash, params);
       }
     };
+
     this.enforcer.on(
       this.enforcer.filters.Requested(),
       requestedHandler,
@@ -73,6 +74,7 @@ exports.ExecutionPoker = class ExecutionPoker {
         this.validateExecution(taskHash, solverPathRoot, executionDepth, resultBytes);
       }
     };
+
     this.enforcer.on(
       this.enforcer.filters.Registered(),
       registeredHandler
@@ -115,6 +117,7 @@ exports.ExecutionPoker = class ExecutionPoker {
         this.submitRound(disputeId);
       }
     };
+
     this.verifier.on(
       this.verifier.filters.DisputeNewRound(),
       newRoundHandler,

@@ -21,9 +21,9 @@ module.exports = {
       gasPrice: 10000000000,
     },
     ganache: {
-      url: 'http://localhost:8111',
+      url: 'http://localhost:8545',
       network_id: '*', // eslint-disable-line camelcase
-      gas: 7000000,
+      gas: 6465030,
       gasPrice: 1,
     },
     geth: {

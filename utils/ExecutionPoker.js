@@ -55,7 +55,10 @@ module.exports = class ExecutionPoker {
         const receipt = await tx.getTransactionReceipt();
 
         if (receipt.from === this.wallet.address) {
-          this.log('execution result registered', taskHash);
+          this.log(' \n');
+          this.log('Execution result registered', taskHash);
+          this.log('Result:', resultBytes);
+          this.log('\n');
         } else {
           this.validateExecution(taskHash, solverPathRoot, executionDepth, resultBytes);
         }
@@ -94,6 +97,8 @@ module.exports = class ExecutionPoker {
         }
       }
     );
+
+    console.log("Solver is listening for events...");
   }
 
   onSlashed (execId) {
