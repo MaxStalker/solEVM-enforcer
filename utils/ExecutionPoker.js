@@ -40,6 +40,8 @@ module.exports = class ExecutionPoker {
 
         const receipt = await tx.getTransactionReceipt();
 
+        // if (receipt.from === this.wallet.address || this.logTag ===
+        // 'solver') {
         if (receipt.from === this.wallet.address) {
           this.log('task request', { taskHash, params });
           this.registerExecution(taskHash, params);
@@ -52,13 +54,15 @@ module.exports = class ExecutionPoker {
     this.enforcer.on(
       this.enforcer.filters.Registered(),
       async (taskHash, solverPathRoot, executionDepth, resultBytes, tx) => {
+        // const pair = ethers.utils.arrayify(taskHash,solverPathRoot);
+        // const executionId = ethers.utils.keccak256(pair);
         const receipt = await tx.getTransactionReceipt();
-
         if (receipt.from === this.wallet.address) {
-          this.log(' \n');
+          console.log(' \n ==============================');
           this.log('Execution result registered', taskHash);
+          //this.log('Execution ID', executionId);
           this.log('Result:', resultBytes);
-          this.log('\n');
+          console.log(' \n ==============================');
         } else {
           this.validateExecution(taskHash, solverPathRoot, executionDepth, resultBytes);
         }

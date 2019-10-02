@@ -34,7 +34,6 @@ class MyExecutionPoker extends ExecutionPoker {
 
     return super.requestExecution(evmParams, callData);
   }
-
   async submitProof (disputeId, computationPath) {
     try {
       await super.submitProof(disputeId, computationPath);
@@ -42,7 +41,6 @@ class MyExecutionPoker extends ExecutionPoker {
       // ignore for unit test
     }
   }
-
   async computeCall (evmParams) {
     const res = await super.computeCall(evmParams);
 
@@ -189,11 +187,11 @@ async function main () {
       process.exit(0);
     }
 
-    console.log('function arguments for', functionName, '\n', functionArgs);
-
     const data = target.interface.functions[functionName].encode(functionArgs);
-
-    console.log('callData', data);
+    console.log('============ COMPUTATION TASK ============');
+    console.log('Function arguments for', functionName, functionArgs);
+    console.log('Calldata:', data);
+    console.log('==========================================\n');
 
     const execPoker = new MyExecutionPoker(
       enforcer,
