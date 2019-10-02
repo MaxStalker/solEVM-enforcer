@@ -22,4 +22,5 @@ const CONTRACT_ADDRESS = "0x52b4eb32F44365b4309d6109aeca145D2e472E9F";
   );
   const sum = await computationContract.addition(a, b);
   console.log(`Sum: ${sum}`);
+  console.log(sum.eq(ethers.utils.bigNumberify(8)));
 })();
