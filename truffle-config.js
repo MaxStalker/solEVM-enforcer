@@ -15,7 +15,9 @@ module.exports = {
   },
   networks: {
     goerli: {
-      url: 'https://goerli.infura.io/v3/' + process.env.INFURA_API_KEY,
+      //url: 'https://goerli.infura.io/v3/' + process.env.INFURA_API_KEY,
+      //url: 'http://goerli.prylabs.net',
+      url: 'https://rpc.goerli.mudit.blog',
       network_id: '5', // eslint-disable-line camelcase
       gas: 6465030,
       gasPrice: 10000000000,
